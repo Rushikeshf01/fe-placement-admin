@@ -1,44 +1,32 @@
-"use client"
-import Link from 'next/link'
-import React, { useState } from 'react'
-import axios from "axios"
+"use client";
+
+import React, { useEffect } from "react";
+import Login from "@/module/login/Login";
+import { usePathname, useRouter } from "next/navigation";
+import { ApplicationConstant } from "@/constant/applicationConstant";
+import { initializeAuthData } from "@/network/authClient";
 
 export default function RegisterPage() {
-  const [student, setStudent] = useState({
-    email:"",
-    password:"",
-  })
+  const router = useRouter();
+  const pathName = usePathname();
 
-  const onLogin = async () => {
-    // try {
-    //     axios
-    // } catch (error:any) {
-    //     console.log(error.msg)
-    // }
+  useEffect(() => {
+    getAuthenticationStatus();
+  }, []);
 
-  }
-  return (
-    <div>
-        <h1>Login</h1>
-        <label htmlFor="email">Email: </label>
-        <input 
-            type="email"
-            id="email" 
-            value={student.email}
-            onChange={(e) => {setStudent({...student, email: e.target.value})}}
-        />
-        <br/>
-        <label htmlFor="password">Password: </label>
-        <input 
-            type="password"
-            id="password" 
-            value={student.password}
-            onChange={(e) => {setStudent({...student, password: e.target.value})}}
-        />
-        <br />
-        <button onClick={onLogin}>Login</button>
-        <br />
-        <Link href='/register'>Register here</Link>
-    </div>
-  )
+  const getAuthenticationStatus = async () => {
+    const status = await initializeAuthData();
+    if (status) {
+      console.log(pathName);
+      // if (pathName.match("/login")) {
+      router.back();
+      // } else {
+      // router.push(ApplicationConstant.DASHBOARD_PATH);
+      // }
+    } else {
+      router.push(ApplicationConstant.LOGIN_PATH);
+    }
+  };
+
+  return <Login />;
 }
