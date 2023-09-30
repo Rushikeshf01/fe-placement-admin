@@ -1,0 +1,11 @@
+.captcha {
+    height: fit-content;
+    width: 120px;
+    padding: 8px 18px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    background-image: url(../../../public/captcha_bg.png);
+    background-size: 220px;
+    user-select: none;
+}

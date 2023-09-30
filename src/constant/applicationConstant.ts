@@ -1,11 +1,31 @@
 export const ApplicationConstant = {
-    REFRESH_TOKEN: "refreshKey",
-    LOGIN_URL_PATH: "/login",
-    REGISTER_URL_PATH: "/register",
-    HOME_URL_PATH: "/home",
-    USER_URL_PATH: "/user",
-  };
+  REFRESH_TOKEN: "refreshKey",
+
+  // main routes
+  LOGIN_PATH: "/login",
+  REGISTER_PATH: "/register",
+  DASHBOARD_PATH: "/dashboard",
+  PROFILE_PATH: "/dashboard/profile",
+};
+
 export const ApiConstant = {
-    API_PATH: "http://127.0.0.1:8000",
-    API_SIGNUP_PATH: "/accounts/user/signup/",
-  };
+  BASE_URL: "http://127.0.0.1:8000/",
+
+  // account url
+  POST_NEW_USER: "account/user/post/",
+  UPDATE_NEW_USER: "account/user/update/",
+  AUTHENTICATE_USER: "account/user/token/",
+  GET_NEW_ACCESS_TOKEN: "account/user/token/refresh/",
+
+  // student url
+  GET_STUDENT_PROFILE: "student/profile/",
+
+  // faculty url
+  GET_FACULTY_PROFILE: "faculty/profile/",
+
+  // company url
+  GET_COMPANY_DETAIL: "company/profile/",
+
+  // placement url
+  POST_APPLICATION: "placement/apply/",
+};
