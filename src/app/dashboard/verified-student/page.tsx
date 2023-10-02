@@ -1,3 +1,5 @@
+"use client";
+
 import { ApplicationConstant } from "@/constant/applicationConstant";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";

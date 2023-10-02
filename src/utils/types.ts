@@ -56,6 +56,42 @@ export interface NestedSidebarProps {
   state: string;
 }
 
+export interface StudentType {
+  id: string;
+  firstName: string;
+  lastName: string;
+  studentDetail: {
+    id: string;
+    whatsappMobile: string;
+    alternateMobile: string;
+    address: string;
+    profilePic: string;
+    resume: string;
+    placementGuidelineForm: string;
+    schoolMedium: string;
+    twelvePercent: string;
+    diplomaPercent: string;
+    tenPercent: string;
+    enrollmentNumber: string;
+    college: string;
+    branch: string;
+    passingYear: number;
+    currentCGPA: string;
+    currentBacklog: number;
+    totalBacklog: number;
+    isCompleted: boolean;
+    isVerified: boolean;
+    isBlocked: boolean;
+    createdAt: string;
+    updatedAt: string;
+    studentId: string;
+  };
+  mobile: string;
+  email: string;
+  isStudent: boolean;
+  isStaff: boolean;
+}
+
 export interface CompanyDetailListType {
   count: number;
   next: string | null;

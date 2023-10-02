@@ -1,4 +1,7 @@
+"use client";
+
 import { ApplicationConstant } from "@/constant/applicationConstant";
+import PendingStudent from "@/module/pendingStudent/PendingStudent";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -14,7 +17,7 @@ const PendingStudentPage = () => {
     }
   }, []);
 
-  return <div>PendingStudentPage</div>;
+  return <PendingStudent />;
 };
 
 export default PendingStudentPage;
