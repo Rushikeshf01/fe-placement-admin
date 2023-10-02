@@ -4,7 +4,7 @@ import React from "react";
 
 const StudentFilterbar = (props: {
   searchValue: string;
-  getPendingStudentList: any;
+  getStudentList: any;
   setSearchValue: any;
 }) => {
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,10 +21,7 @@ const StudentFilterbar = (props: {
         className="mr-4"
         InputProps={{
           endAdornment: (
-            <IconButton
-              onClick={() => props.getPendingStudentList()}
-              type="button"
-            >
+            <IconButton onClick={() => props.getStudentList()} type="button">
               <Search />
             </IconButton>
           ),

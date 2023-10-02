@@ -1,10 +1,10 @@
-import StudentPagination from "@/commonComponents/StudentPagination";
+import StudentPagination from "@/commonComponents/student/StudentPagination";
 import { StudentType } from "@/utils/types";
 import React from "react";
-import PendingStudentBody from "./PendingStudentBody";
+import StudentBody from "./StudentBody";
 
-const PendingStudentHead = (props: {
-  pendingStudentList: StudentType[];
+const StudentHead = (props: {
+  studentList: StudentType[];
   count: number;
   page: number;
   rowsPerPage: number;
@@ -18,16 +18,16 @@ const PendingStudentHead = (props: {
           <tr className="bg-gray-100">
             <th className="p-2">Name</th>
             <th className="p-2">Mobile</th>
-            <th className="p-2">Email</th>
             <th className="p-2">Enrollment number</th>
+            <th className="p-2">Email</th>
             <th className="p-2">Profile pic</th>
           </tr>
         </thead>
         <tbody>
-          {props.pendingStudentList.map((item, index) => (
-            <PendingStudentBody
+          {props.studentList.map((item, index) => (
+            <StudentBody
               studentDetail={item}
-              key={`pending-student-list-index:${index}`}
+              key={`student-list-item-index:${index}`}
             />
           ))}
         </tbody>
@@ -43,4 +43,4 @@ const PendingStudentHead = (props: {
   );
 };
 
-export default PendingStudentHead;
+export default StudentHead;

@@ -1,6 +1,7 @@
 "use client";
 
 import { ApplicationConstant } from "@/constant/applicationConstant";
+import VerifiedStudent from "@/module/verifiedStudent/VerifiedStudent";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
@@ -16,7 +17,7 @@ const VerifiedStudentPage = () => {
     }
   }, []);
 
-  return <div>VerifiedStudentPage</div>;
+  return <VerifiedStudent />;
 };
 
 export default VerifiedStudentPage;
