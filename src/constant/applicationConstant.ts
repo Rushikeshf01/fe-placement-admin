@@ -6,6 +6,7 @@ export const ApplicationConstant = {
   REGISTER_PATH: "/register",
   DASHBOARD_PATH: "/dashboard",
   PROFILE_PATH: "/dashboard/profile",
+  UNIVERSITY_PATH: "/dashboard/university"
 };
 
 export const ApiConstant = {
@@ -28,4 +29,8 @@ export const ApiConstant = {
 
   // placement url
   POST_APPLICATION: "placement/apply/",
+
+  // university url
+  COLLEGE_TYPE: "university/college/",
+  BRANCH_TYPE: "university/branch/",
 };

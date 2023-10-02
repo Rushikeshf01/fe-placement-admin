@@ -28,6 +28,11 @@ const facultySidebarRoutes: SidebarRoutesType[] = [
     icon: <Business />,
     child: [{ state: "Add Company", path: "" }],
   },
+  {
+    state: "University",
+    icon: <Business />,
+    path: ApplicationConstant.UNIVERSITY_PATH,
+  },
   // {
   //   path: "/applied",
   //   state: "Applied",
