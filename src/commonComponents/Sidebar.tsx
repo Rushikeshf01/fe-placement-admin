@@ -29,6 +29,20 @@ const facultySidebarRoutes: SidebarRoutesType[] = [
     child: [{ state: "Add Company", path: "" }],
   },
   {
+    state: "Student",
+    icon: <Business />,
+    child: [
+      {
+        state: "Pending student",
+        path: ApplicationConstant.PENDING_STUDENT_PATH,
+      },
+      {
+        state: "Verified student",
+        path: ApplicationConstant.VERIFIED_STUDENT_PATH,
+      },
+    ],
+  },
+  {
     state: "University",
     icon: <Business />,
     path: ApplicationConstant.UNIVERSITY_PATH,
