@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Avatar, Tooltip } from "@mui/material";
 import { Logout, MenuRounded } from "@mui/icons-material";
-import Logo from "../../../public/sou-logo.png";
+import Logo from "../../public/sou-logo.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import Link from "next/link";

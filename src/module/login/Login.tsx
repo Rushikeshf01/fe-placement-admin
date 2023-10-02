@@ -67,7 +67,7 @@ const Login = () => {
       );
       router.push(ApplicationConstant.DASHBOARD_PATH);
     } else {
-      ToastErrorMessage("Invalid credentials");
+      ToastErrorMessage("No active account found with the given credentials");
     }
   };
 

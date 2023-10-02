@@ -1,5 +1,5 @@
 import React from "react";
-import { NotAvailable } from "./alert/Alerts";
+import { NotAvailable } from "./Alerts";
 
 export const ParagraphSpan = (props: {
   title: string;

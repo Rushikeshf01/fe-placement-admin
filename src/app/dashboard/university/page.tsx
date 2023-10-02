@@ -1,13 +1,13 @@
 "use client";
 
 import { ApplicationConstant } from "@/constant/applicationConstant";
-import Faculty from "@/module/faculty/Faculty";
+import University from "@/module/university/University";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const DashboardPage = () => {
+const UniversityPage = () => {
   const authClient = useSelector((state: RootState) => state.auth);
   const router = useRouter();
 
@@ -17,7 +17,7 @@ const DashboardPage = () => {
     }
   }, []);
 
-  return <Faculty />;
+  return <University />;
 };
 
-export default DashboardPage;
+export default UniversityPage;

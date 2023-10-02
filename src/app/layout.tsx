@@ -7,8 +7,8 @@ import ToastifyContainer from "@/utils/ToastifyContainer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Campus Placement Portal",
-  description: "Sou placment application for students",
+  title: "Admin Placement Portal",
+  description: "Sou placment application for admin",
 };
 
 export default function RootLayout({
