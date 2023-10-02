@@ -7,104 +7,103 @@ import { ToastSuccessMessage } from "@/utils/toastifyAlerts";
 import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-interface CollegeItemType {
+interface BranchItemType {
   id: string;
   name: string;
 }
 
-const College = () => {
-  const [collegeType, setCollegeType] = useState<CollegeItemType[]>();
+const Branch = () => {
+  const [branchType, setBranchType] = useState<BranchItemType[]>();
 
   useEffect(() => {
-    getCollegeTypes();
+    getBranchTypes();
   }, []);
 
-  const getCollegeTypes = async () => {
-    const res = await authClient.get(ApiConstant.COLLEGE_TYPE);
-    setCollegeType(res.data);
+  const getBranchTypes = async () => {
+    const res = await authClient.get(ApiConstant.BRANCH_TYPE);
+    setBranchType(res.data);
   };
-
   return (
     <div className="p-3">
-      {collegeType ? (
+      {branchType ? (
         <>
-          <p className="mb-6 text-3xl font-semibold">College List</p>
+          <p className="mb-6 text-3xl font-semibold">Branch List</p>
           <div className="grid grid-cols-2 items-center mb-4 gap-3">
-            {collegeType.map((item, index) => (
-              <CollegeSingleInput
+            {branchType.map((item, index) => (
+              <BranchSingleInput
                 item={item}
-                collegeType={collegeType}
-                setCollegeType={setCollegeType}
-                key={`college-single-input-type-index:${index}`}
+                branchType={branchType}
+                setBranchType={setBranchType}
+                key={`branch-single-input-type-index:${index}`}
               />
             ))}
-            <CollegeSingleInput
+            <BranchSingleInput
               item={{ id: "", name: "" }}
               addNewInput
-              collegeType={collegeType}
-              setCollegeType={setCollegeType}
+              branchType={branchType}
+              setBranchType={setBranchType}
             />
           </div>
         </>
       ) : (
-        <NotAvailable label="Colleges" />
+        <NotAvailable label="Branches" />
       )}
     </div>
   );
 };
 
-const CollegeSingleInput = (props: {
-  item: CollegeItemType;
-  collegeType: CollegeItemType[];
-  setCollegeType: any;
+const BranchSingleInput = (props: {
+  item: BranchItemType;
+  branchType: BranchItemType[];
+  setBranchType: any;
   addNewInput?: true;
 }) => {
-  const [collegeSingleInput, setCollegeSingleInput] = useState(props.item);
+  const [branchSingleInput, setBranchSingleInput] = useState(props.item);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget;
-    setCollegeSingleInput((prevState) => ({ ...prevState, name: value }));
+    setBranchSingleInput((prevState) => ({ ...prevState, name: value }));
   };
 
   const handleAdd = async () => {
-    const res = await authClient.post(ApiConstant.COLLEGE_TYPE, {
-      name: collegeSingleInput.name,
+    const res = await authClient.post(ApiConstant.BRANCH_TYPE, {
+      name: branchSingleInput.name,
     });
-    props.setCollegeType((prevState: CollegeItemType[]) => [
+    props.setBranchType((prevState: BranchItemType[]) => [
       ...prevState,
       res.data,
     ]);
-    ToastSuccessMessage("College successfully added.");
-    setCollegeSingleInput({ id: "", name: "" });
+    ToastSuccessMessage("Branch successfully added.");
+    setBranchSingleInput({ id: "", name: "" });
   };
 
   const handleUpdate = async () => {
     const res = await authClient.put(
-      `${ApiConstant.COLLEGE_TYPE}${collegeSingleInput.id}/`,
+      `${ApiConstant.BRANCH_TYPE}${branchSingleInput.id}/`,
       {
-        id: collegeSingleInput.id,
-        name: collegeSingleInput.name,
+        id: branchSingleInput.id,
+        name: branchSingleInput.name,
       }
     );
-    ToastSuccessMessage("College successfully updated.");
+    ToastSuccessMessage("Branch successfully updated.");
   };
 
   const handleDelete = async () => {
     const res = await authClient.delete(
-      `${ApiConstant.COLLEGE_TYPE}${collegeSingleInput.id}/`
+      `${ApiConstant.BRANCH_TYPE}${branchSingleInput.id}/`
     );
-    props.setCollegeType(
-      props.collegeType.filter((item) => item.id !== collegeSingleInput.id)
+    props.setBranchType(
+      props.branchType.filter((item) => item.id !== branchSingleInput.id)
     );
-    ToastSuccessMessage("College successfully deleted.");
+    ToastSuccessMessage("Branch successfully deleted.");
   };
 
   return (
     <>
       <TextField
-        value={collegeSingleInput.name}
+        value={branchSingleInput.name}
         name="name"
-        label="College name"
+        label="Branch name"
         onChange={handleOnChange}
         required
         fullWidth
@@ -146,4 +145,4 @@ const CollegeSingleInput = (props: {
   );
 };
 
-export default College;
+export default Branch;
