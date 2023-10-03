@@ -29,6 +29,8 @@ export const ApiConstant = {
 
   // company url
   GET_COMPANY_DETAIL: "company/profile/",
+  ADD_COMPANY_DETAIL: "company/create/",
+  ADD_COMPANY_DOCUMENT_DETAIL: "company/document/create/",
 
   // placement url
   POST_APPLICATION: "placement/apply/",

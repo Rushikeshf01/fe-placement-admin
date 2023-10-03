@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { LoginInputType } from "./types";
+import { LoginInputType, NewCompanyType } from "./types";
 
 interface JoiReturnType {
   status: boolean;
@@ -18,6 +18,25 @@ class JoiUtils {
 
   public validateLoginData(loginData: LoginInputType): JoiReturnType {
     const { error, value } = this.loginSchema.validate(loginData);
+    if (error) {
+      return { status: false, message: error.details[0].message };
+    }
+    if (value) {
+      return { status: true, message: value.message };
+    }
+    return { status: true, message: value.message };
+  }
+
+  private newCompanySchema = Joi.object({
+    name: Joi.string().required().label("Company name"),
+    location: Joi.string().required().label("Company location"),
+    website: Joi.string().required().label("Company website"),
+    deadline: Joi.string().required().label("Company deadline"),
+    description: Joi.string().required().label("Company description"),
+  });
+
+  public validateNewCompanyData(newCompanyData: NewCompanyType): JoiReturnType {
+    const { error, value } = this.newCompanySchema.validate(newCompanyData);
     if (error) {
       return { status: false, message: error.details[0].message };
     }

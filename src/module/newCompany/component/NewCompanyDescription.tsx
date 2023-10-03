@@ -92,7 +92,7 @@ const NewCompanyDescription = (props: {
   };
 
   return (
-    <div className="mt-4">
+    <div>
       <ReactQuill
         onChange={(e) => handleOnChange(e)}
         modules={modules}
