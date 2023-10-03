@@ -92,6 +92,14 @@ export interface StudentType {
   isStaff: boolean;
 }
 
+export interface NewCompanyType {
+  name: string;
+  location: string;
+  website: string;
+  deadline: string;
+  description: string;
+}
+
 export interface CompanyDetailListType {
   count: number;
   next: string | null;

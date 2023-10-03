@@ -26,7 +26,9 @@ const facultySidebarRoutes: SidebarRoutesType[] = [
   {
     state: "Company",
     icon: <Business />,
-    child: [{ state: "Add Company", path: "" }],
+    child: [
+      { state: "Add Company", path: ApplicationConstant.NEW_COMPANY_PATH },
+    ],
   },
   {
     state: "Student",
@@ -78,16 +80,26 @@ const SidebarItem = (props: { item: SidebarRoutesType }) => {
 
   return (
     <div>
-      <Link
-        href={props.item.path ? props.item.path : ""}
-        className="flex m-2 p-3 px-7 hover:bg-gray-200 hover:rounded-md"
-      >
-        {props.item.icon}
-        <p className="mx-2 ">{props.item.state}</p>
-        <p onClick={handelNestedRoutes}>
-          {props.item.child && (isExpanded ? <ExpandLess /> : <ExpandMore />)}
+      {props.item.child ? (
+        <p
+          onClick={handelNestedRoutes}
+          className="flex m-2 p-3 px-7 cursor-pointer hover:bg-gray-200 hover:rounded-md"
+        >
+          {props.item.icon}
+          <p className="mx-2 ">{props.item.state}</p>
+          <p>
+            {props.item.child && (isExpanded ? <ExpandLess /> : <ExpandMore />)}
+          </p>
         </p>
-      </Link>
+      ) : (
+        <Link
+          href={props.item.path ? props.item.path : ""}
+          className="flex m-2 p-3 px-7 hover:bg-gray-200 hover:rounded-md"
+        >
+          {props.item.icon}
+          <p className="mx-2 ">{props.item.state}</p>
+        </Link>
+      )}
       {props.item.child && isExpanded && (
         <NestedSidebar subRoutes={props.item.child} />
       )}

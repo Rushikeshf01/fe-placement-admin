@@ -9,6 +9,7 @@ export const ApplicationConstant = {
   UNIVERSITY_PATH: "/dashboard/university",
   PENDING_STUDENT_PATH: "/dashboard/pending-student",
   VERIFIED_STUDENT_PATH: "/dashboard/verified-student",
+  NEW_COMPANY_PATH: "/dashboard/company/new",
 };
 
 export const ApiConstant = {
